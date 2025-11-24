@@ -1,0 +1,39 @@
+DOCUSHOP LICENSE AGREEMENT
+
+Copyright © 2024 MASSIVE MAGNETICS. All rights reserved.
+
+PROPRIETARY SOFTWARE LICENSE
+
+This software and associated documentation files (the "Software") are proprietary 
+to MASSIVE MAGNETICS and are protected by copyright law and international treaty 
+provisions.
+
+GRANT OF LICENSE
+Subject to the terms and conditions of this Agreement, MASSIVE MAGNETICS grants 
+you a limited, non-exclusive, non-transferable license to use the Software solely 
+for your internal business purposes.
+
+RESTRICTIONS
+You may not:
+- Copy, modify, or create derivative works of the Software
+- Reverse engineer, decompile, or disassemble the Software
+- Rent, lease, lend, sell, redistribute, or sublicense the Software
+- Remove or alter any proprietary notices on the Software
+
+HIPAA COMPLIANCE
+This Software is designed to support HIPAA compliance when properly configured 
+and used. The licensee is responsible for ensuring their use of the Software 
+complies with all applicable regulations, including but not limited to HIPAA.
+
+DISCLAIMER OF WARRANTIES
+THE SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A 
+PARTICULAR PURPOSE AND NONINFRINGEMENT.
+
+LIMITATION OF LIABILITY
+IN NO EVENT SHALL MASSIVE MAGNETICS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE 
+SOFTWARE.
+
+For licensing inquiries, please contact: legal@massivemagnetics.com

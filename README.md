@@ -4,6 +4,19 @@
 
 DocuShop enables authorized staff to create, brand, autofill, sign, audit, and export official documents such as doctor's excuses, verification letters, visit summaries, and reports. Think "Photoshop for documents" designed for healthcare.
 
+## 🚀 New: Windows 10 Desktop Application
+
+DocuShop is now available as a **native Windows 10 desktop application** with:
+- ✅ **Full Windows menu bar** (File, Edit, View, Preferences, Tools, Help)
+- ✅ **Professional installer** with desktop shortcuts and file associations
+- ✅ **Keyboard shortcuts** (Ctrl+N, Ctrl+S, Ctrl+Z, etc.)
+- ✅ **Auto-update** functionality
+- ✅ **Offline capable** with local storage
+
+📥 **[Download Windows Installer](https://github.com/MASSIVEMAGNETICS/docushop/releases)**  
+📖 **[Windows Installation Guide](frontend/WINDOWS_INSTALLATION.md)**  
+👨‍💻 **[Developer Guide](frontend/ELECTRON_README.md)**
+
 ## Features
 
 ### MVP Feature Set
@@ -16,6 +29,7 @@ DocuShop enables authorized staff to create, brand, autofill, sign, audit, and e
 - ✅ **Authentication & Audit** - JWT-based auth with comprehensive audit logging
 - ✅ **Electronic Signatures** - Digital signature support
 - ✅ **Compliance & Security** - HIPAA-focused design with encryption
+- ✅ **Windows Desktop App** - Native Windows 10 application with full menu bar
 
 ## Tech Stack
 
@@ -30,10 +44,29 @@ DocuShop enables authorized staff to create, brand, autofill, sign, audit, and e
 - **Framework**: React 19+ with Vite
 - **Canvas Editor**: React Konva for drag-and-drop editing
 - **Styling**: CSS modules
+- **Desktop**: Electron for Windows/Mac/Linux
 
 ## Quick Start
 
-### Prerequisites
+### Windows Desktop Application
+
+```bash
+# Download and install
+# 1. Download DocuShop-Setup-1.0.0.exe
+# 2. Run the installer
+# 3. Launch from Start Menu or Desktop shortcut
+
+# Or for development
+cd frontend
+npm install
+npm run electron:dev
+```
+
+See [QUICKSTART.md](frontend/QUICKSTART.md) for detailed instructions.
+
+### Web Application
+
+#### Prerequisites
 
 - Python 3.12+
 - Node.js 20+
