@@ -31,7 +31,9 @@ cd "${PROJECT_ROOT}"
 # Load environment variables
 if [ -f "deployments/docker/.env" ]; then
     echo "Loading environment variables from .env file..."
-    export $(cat deployments/docker/.env | grep -v '^#' | xargs)
+    set -a
+    source deployments/docker/.env
+    set +a
 else
     echo "Warning: .env file not found. Using defaults."
     echo "Please create deployments/docker/.env from .env.template"

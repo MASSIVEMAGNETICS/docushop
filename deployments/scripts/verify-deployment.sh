@@ -98,10 +98,19 @@ check_file "CHANGELOG.md"
 echo ""
 
 echo "Validating Docker Compose configuration..."
-if docker compose -f deployments/docker/docker-compose.prod.yml config > /dev/null 2>&1; then
-    echo -e "${GREEN}✓${NC} Docker Compose configuration is valid"
+if [ -f "deployments/docker/.env" ]; then
+    if docker compose -f deployments/docker/docker-compose.prod.yml config > /dev/null 2>&1; then
+        echo -e "${GREEN}✓${NC} Docker Compose configuration is valid"
+    else
+        echo -e "${RED}✗${NC} Docker Compose configuration has errors"
+    fi
 else
-    echo -e "${YELLOW}⚠${NC} Docker Compose configuration has warnings (this is normal without .env file)"
+    echo -e "${YELLOW}⚠${NC} No .env file found - configuration will use defaults"
+    if docker compose -f deployments/docker/docker-compose.prod.yml config > /dev/null 2>&1; then
+        echo -e "${YELLOW}⚠${NC} Docker Compose configuration is syntactically valid (but needs .env)"
+    else
+        echo -e "${RED}✗${NC} Docker Compose configuration has syntax errors"
+    fi
 fi
 echo ""
 

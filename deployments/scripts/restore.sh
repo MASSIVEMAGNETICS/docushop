@@ -47,7 +47,8 @@ fi
 
 # Confirm restore
 read -p "This will replace the current database. Are you sure? (yes/no): " CONFIRM
-if [ "${CONFIRM}" != "yes" ]; then
+CONFIRM_LOWER=$(echo "${CONFIRM}" | tr '[:upper:]' '[:lower:]')
+if [ "${CONFIRM_LOWER}" != "yes" ] && [ "${CONFIRM_LOWER}" != "y" ]; then
   echo "Restore cancelled."
   exit 0
 fi
