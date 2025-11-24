@@ -1,0 +1,145 @@
+{
+  "id": "tpl-verification-001",
+  "org_id": "org-uh-elyria",
+  "name": "Verification of Visit",
+  "description": "Confirms that patient was seen on a specific date",
+  "pages": [
+    {
+      "page_number": 1,
+      "size": "letter",
+      "width": 612,
+      "height": 792,
+      "elements": [
+        {
+          "id": "logo-1",
+          "type": "image",
+          "x": 40,
+          "y": 24,
+          "w": 120,
+          "h": 40,
+          "rotation": 0,
+          "props": {
+            "src": "assets/logo.svg"
+          }
+        },
+        {
+          "id": "header-1",
+          "type": "text",
+          "x": 180,
+          "y": 24,
+          "w": 360,
+          "h": 40,
+          "rotation": 0,
+          "props": {
+            "text": "University Hospitals Elyria Medical Center",
+            "fontSize": 14,
+            "fontFamily": "Arial",
+            "fontWeight": "bold"
+          }
+        },
+        {
+          "id": "title-1",
+          "type": "text",
+          "x": 40,
+          "y": 90,
+          "w": 520,
+          "h": 30,
+          "rotation": 0,
+          "props": {
+            "text": "VERIFICATION OF MEDICAL VISIT",
+            "fontSize": 16,
+            "fontFamily": "Arial",
+            "fontWeight": "bold",
+            "align": "center"
+          }
+        },
+        {
+          "id": "body-1",
+          "type": "richtext",
+          "x": 40,
+          "y": 140,
+          "w": 520,
+          "h": 380,
+          "rotation": 0,
+          "props": {
+            "text": "Date: {{issue_date}}\n\nTO WHOM IT MAY CONCERN:\n\nThis letter serves to verify that {{patient_name}} was seen at our facility on {{visit_date}}.\n\nPatient Information:\nName: {{patient_name}}\nDate of Birth: {{dob}}\nMedical Record Number: {{mrn}}\n\nThis verification is provided at the patient's request and does not include disclosure of any protected health information beyond the fact that the visit occurred.\n\nFor verification of this document, please contact our office at {{contact_phone}}.\n\nSincerely,\n\n{{staff_name}}\n{{staff_title}}",
+            "fontSize": 11,
+            "fontFamily": "Times New Roman",
+            "lineHeight": 1.6
+          }
+        },
+        {
+          "id": "footer-1",
+          "type": "text",
+          "x": 40,
+          "y": 720,
+          "w": 520,
+          "h": 40,
+          "rotation": 0,
+          "props": {
+            "text": "630 East River Street, Elyria, OH 44035 | Phone: (440) 329-7500",
+            "fontSize": 9,
+            "fontFamily": "Arial",
+            "align": "center",
+            "color": "#666666"
+          }
+        }
+      ]
+    }
+  ],
+  "variables": [
+    {
+      "name": "issue_date",
+      "type": "date",
+      "required": true
+    },
+    {
+      "name": "patient_name",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "dob",
+      "type": "date",
+      "required": true
+    },
+    {
+      "name": "mrn",
+      "type": "string",
+      "required": true,
+      "validation": "^[A-Z0-9]{6,10}$"
+    },
+    {
+      "name": "visit_date",
+      "type": "date",
+      "required": true
+    },
+    {
+      "name": "contact_phone",
+      "type": "phone",
+      "required": true,
+      "default_value": "(440) 329-7500"
+    },
+    {
+      "name": "staff_name",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "staff_title",
+      "type": "string",
+      "required": true,
+      "default_value": "Medical Records Department"
+    }
+  ],
+  "metadata": {
+    "category": "verification",
+    "tags": ["verification", "visit", "attendance"]
+  },
+  "access_control": {
+    "scope": "org-wide",
+    "roles": ["staff", "clinician", "admin"]
+  },
+  "is_published": true,
+  "created_by": "usr-admin-001"
+}

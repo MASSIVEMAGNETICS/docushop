@@ -1,0 +1,128 @@
+.template-editor {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f0f0f0;
+}
+
+.editor-header {
+  background: white;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.template-name-input {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  font-size: 1.125rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.editor-container {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.editor-toolbar {
+  width: 250px;
+  background: white;
+  padding: 1.5rem;
+  overflow-y: auto;
+  border-right: 1px solid #e0e0e0;
+}
+
+.editor-toolbar h3 {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  color: #666;
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+}
+
+.toolbar-btn {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+  font-size: 0.875rem;
+}
+
+.toolbar-btn:hover {
+  background: #e8e8e8;
+  border-color: #003366;
+}
+
+.variable-list {
+  margin-top: 1rem;
+}
+
+.variable-item {
+  padding: 0.5rem;
+  background: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: #003366;
+}
+
+.editor-canvas {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  overflow: auto;
+}
+
+.canvas-wrapper {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.editor-inspector {
+  width: 300px;
+  background: white;
+  padding: 1.5rem;
+  overflow-y: auto;
+  border-left: 1px solid #e0e0e0;
+}
+
+.inspector-content {
+  font-size: 0.875rem;
+}
+
+.inspector-help {
+  color: #999;
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+@media (max-width: 1200px) {
+  .editor-inspector {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .editor-toolbar {
+    width: 200px;
+  }
+  
+  .canvas-wrapper {
+    padding: 1rem;
+  }
+}
