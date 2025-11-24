@@ -1,16 +1,32 @@
 {
-  "name": "docushop-frontend",
+  "name": "docushop",
+  "productName": "DocuShop",
   "version": "1.0.0",
-  "type": "module",
+  "description": "A HIPAA-compliant document composition platform for clinical use",
+  "main": "electron/main.js",
+  "author": "MASSIVE MAGNETICS",
+  "license": "Proprietary",
+  "homepage": "https://github.com/MASSIVEMAGNETICS/docushop",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "electron": "electron .",
+    "electron:dev": "concurrently \"npm run dev\" \"wait-on http://localhost:5173 && electron .\"",
+    "electron:build": "npm run build && electron-builder",
+    "electron:build:win": "npm run build && electron-builder --win",
+    "electron:build:all": "npm run build && electron-builder --win --mac --linux",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "keywords": [
+    "document",
+    "composition",
+    "HIPAA",
+    "healthcare",
+    "clinical",
+    "templates"
+  ],
   "dependencies": {
     "@vitejs/plugin-react": "^5.1.1",
     "fabric": "^6.9.0",
@@ -22,6 +38,110 @@
   },
   "devDependencies": {
     "@types/react": "^19.2.7",
-    "@types/react-dom": "^19.2.3"
+    "@types/react-dom": "^19.2.3",
+    "concurrently": "^9.2.1",
+    "electron": "^39.2.3",
+    "electron-builder": "^26.0.12",
+    "electron-is-dev": "^3.0.1",
+    "png-to-ico": "^3.0.1",
+    "sharp": "^0.34.5",
+    "wait-on": "^8.0.5"
+  },
+  "build": {
+    "appId": "com.massivemagnetics.docushop",
+    "productName": "DocuShop",
+    "copyright": "Copyright © 2024 MASSIVE MAGNETICS",
+    "directories": {
+      "buildResources": "build",
+      "output": "dist-electron"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "public/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "public",
+        "to": "public",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "public/icon.ico",
+      "publisherName": "MASSIVE MAGNETICS",
+      "fileAssociations": [
+        {
+          "ext": "dtpl",
+          "name": "DocuShop Template",
+          "icon": "public/template-icon.ico"
+        },
+        {
+          "ext": "ddoc",
+          "name": "DocuShop Document",
+          "icon": "public/document-icon.ico"
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "installerIcon": "public/icon.ico",
+      "uninstallerIcon": "public/icon.ico",
+      "installerHeaderIcon": "public/icon.ico",
+      "shortcutName": "DocuShop",
+      "perMachine": true,
+      "runAfterFinish": true,
+      "artifactName": "DocuShop-Setup-${version}.${ext}",
+      "license": "LICENSE.txt",
+      "warningsAsErrors": false
+    },
+    "portable": {
+      "artifactName": "DocuShop-Portable-${version}.${ext}"
+    },
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "icon": "public/icon.icns",
+      "category": "public.app-category.healthcare-fitness",
+      "hardenedRuntime": true,
+      "entitlements": "build/entitlements.mac.plist",
+      "entitlementsInherit": "build/entitlements.mac.plist"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "icon": "public/icon.png",
+      "category": "Office"
+    },
+    "publish": {
+      "provider": "github",
+      "owner": "MASSIVEMAGNETICS",
+      "repo": "docushop"
+    }
   }
 }

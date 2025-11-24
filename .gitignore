@@ -19,6 +19,15 @@ yarn-error.log*
 dist/
 .vite/
 
+# Electron
+dist-electron/
+out/
+*.exe
+*.dmg
+*.AppImage
+*.deb
+*.rpm
+
 # IDE
 .vscode/
 .idea/
