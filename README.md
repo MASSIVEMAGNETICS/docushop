@@ -257,10 +257,43 @@ mypy app/
 
 ## Deployment
 
-See `/deployments` directory for:
-- Docker configurations
-- Kubernetes manifests
+DocuShop can be deployed using Docker Compose for production environments.
+
+### Quick Production Deployment
+
+```bash
+# 1. Configure environment
+cp deployments/docker/.env.template deployments/docker/.env
+nano deployments/docker/.env  # Edit with your production values
+
+# 2. Deploy
+./deployments/scripts/deploy.sh production
+
+# 3. Verify
+curl http://localhost/health
+curl http://localhost/api/health
+```
+
+### What's Included
+
+- ✅ **Docker Compose Configuration** - Production-ready setup with health checks
+- ✅ **CI/CD Pipeline** - GitHub Actions for automated builds and tests
+- ✅ **Deployment Scripts** - Automated deployment, backup, and restore
+- ✅ **SSL/TLS Support** - Ready for HTTPS with Let's Encrypt
+- ✅ **Monitoring** - Health checks and logging configuration
+- ✅ **Database Backups** - Automated backup and restore scripts
+
+### Documentation
+
+- 📖 [Deployment Guide](deployments/DEPLOYMENT.md) - Comprehensive deployment instructions
+- 📖 [Deployments README](deployments/README.md) - Quick reference for deployment options
+- 🔧 [CI/CD Workflows](.github/workflows/) - Automated build and test pipelines
+
+See the [`/deployments`](deployments/) directory for:
+- Docker Compose configurations
 - Environment configuration templates
+- Deployment and maintenance scripts
+- Database initialization and backup tools
 
 ## Roadmap
 
