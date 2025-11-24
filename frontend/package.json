@@ -51,6 +51,8 @@
     "appId": "com.massivemagnetics.docushop",
     "productName": "DocuShop",
     "copyright": "Copyright © 2024 MASSIVE MAGNETICS",
+    "npmRebuild": false,
+    "buildDependenciesFromSource": false,
     "directories": {
       "buildResources": "build",
       "output": "dist-electron"
@@ -87,7 +89,6 @@
         }
       ],
       "icon": "public/icon.ico",
-      "publisherName": "MASSIVE MAGNETICS",
       "fileAssociations": [
         {
           "ext": "dtpl",
