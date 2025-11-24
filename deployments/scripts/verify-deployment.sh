@@ -92,6 +92,8 @@ echo ""
 echo "Checking documentation..."
 check_file "deployments/DEPLOYMENT.md"
 check_file "deployments/README.md"
+check_file "deployments/QUICKSTART.md"
+check_file "deployments/TESTING.md"
 check_file "CHANGELOG.md"
 echo ""
 
