@@ -1,0 +1,121 @@
+{
+  "id": "tpl-visit-note-001",
+  "org_id": "org-uh-elyria",
+  "name": "Doctor Note - Excuse for School/Work",
+  "description": "Official medical excuse letter for school or work",
+  "pages": [
+    {
+      "page_number": 1,
+      "size": "letter",
+      "width": 612,
+      "height": 792,
+      "elements": [
+        {
+          "id": "logo-1",
+          "type": "image",
+          "x": 40,
+          "y": 24,
+          "w": 120,
+          "h": 40,
+          "rotation": 0,
+          "props": {
+            "src": "assets/logo.svg"
+          }
+        },
+        {
+          "id": "header-1",
+          "type": "text",
+          "x": 180,
+          "y": 24,
+          "w": 360,
+          "h": 40,
+          "rotation": 0,
+          "props": {
+            "text": "University Hospitals Elyria Medical Center",
+            "fontSize": 14,
+            "fontFamily": "Arial",
+            "fontWeight": "bold"
+          }
+        },
+        {
+          "id": "body-1",
+          "type": "richtext",
+          "x": 40,
+          "y": 90,
+          "w": 520,
+          "h": 420,
+          "rotation": 0,
+          "props": {
+            "text": "To Whom It May Concern:\n\nThis is to verify that {{patient_name}} (DOB: {{dob}}) was seen on {{visit_date}} and was under my care. They may return to normal duties on {{return_date}}.\n\nSincerely,\n\n{{physician_name}}\n{{physician_title}}",
+            "fontSize": 11,
+            "fontFamily": "Times New Roman",
+            "lineHeight": 1.6
+          }
+        },
+        {
+          "id": "sig-1",
+          "type": "signature",
+          "x": 40,
+          "y": 520,
+          "w": 220,
+          "h": 64,
+          "rotation": 0,
+          "props": {
+            "required": true,
+            "pinProtected": true,
+            "label": "Physician Signature"
+          }
+        }
+      ]
+    }
+  ],
+  "variables": [
+    {
+      "name": "patient_name",
+      "type": "string",
+      "required": true,
+      "validation": null
+    },
+    {
+      "name": "dob",
+      "type": "date",
+      "required": true,
+      "validation": null
+    },
+    {
+      "name": "visit_date",
+      "type": "date",
+      "required": true,
+      "validation": null
+    },
+    {
+      "name": "return_date",
+      "type": "date",
+      "required": true,
+      "validation": null
+    },
+    {
+      "name": "physician_name",
+      "type": "string",
+      "required": true,
+      "validation": null
+    },
+    {
+      "name": "physician_title",
+      "type": "string",
+      "required": false,
+      "validation": null,
+      "default_value": "MD"
+    }
+  ],
+  "metadata": {
+    "category": "clinical_note",
+    "tags": ["excuse", "work", "school", "visit"]
+  },
+  "access_control": {
+    "scope": "org-wide",
+    "roles": ["clinician", "staff"]
+  },
+  "is_published": true,
+  "created_by": "usr-admin-001"
+}

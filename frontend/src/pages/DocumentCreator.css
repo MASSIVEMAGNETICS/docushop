@@ -1,0 +1,114 @@
+.document-creator {
+  min-height: 100vh;
+  background: #f5f5f5;
+}
+
+.creator-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.creator-form {
+  min-width: 0;
+}
+
+.creator-preview {
+  min-width: 0;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.required {
+  color: #dc3545;
+  margin-left: 0.25rem;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #003366;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.form-actions .btn {
+  flex: 1;
+}
+
+.preview-content {
+  background: white;
+  padding: 2rem;
+  border: 1px solid #ddd;
+  min-height: 500px;
+  font-family: 'Times New Roman', serif;
+  line-height: 1.6;
+}
+
+.preview-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #003366;
+}
+
+.preview-header h3 {
+  color: #003366;
+  font-size: 1.25rem;
+}
+
+.preview-body {
+  margin-bottom: 3rem;
+}
+
+.preview-body pre {
+  white-space: pre-wrap;
+  font-family: 'Times New Roman', serif;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.signature-block {
+  margin-top: 4rem;
+}
+
+.signature-line {
+  width: 300px;
+  border-bottom: 2px solid #333;
+  margin-bottom: 0.5rem;
+}
+
+.signature-block p {
+  font-size: 0.875rem;
+  color: #666;
+}
+
+@media (max-width: 1024px) {
+  .creator-container {
+    grid-template-columns: 1fr;
+  }
+}
