@@ -3,6 +3,8 @@ Seed script to populate the database with sample data for development/demo.
 Run this script to set up initial organizations, users, and templates.
 """
 import asyncio
+import os
+from pathlib import Path
 from motor.motor_asyncio import AsyncIOMotorClient
 from datetime import datetime
 import json
@@ -85,15 +87,21 @@ async def seed_database():
     # Load and insert sample templates
     print("  Creating templates...")
     
+    # Get the directory of this script
+    script_dir = Path(__file__).parent
+    templates_dir = script_dir.parent / 'docs' / 'sample-templates'
+    
     # Doctor's Excuse template
-    with open('../docs/sample-templates/doctors-excuse.json', 'r') as f:
+    doctors_excuse_path = templates_dir / 'doctors-excuse.json'
+    with open(doctors_excuse_path, 'r') as f:
         doctors_excuse = json.load(f)
         doctors_excuse['created_at'] = datetime.utcnow()
         doctors_excuse['updated_at'] = datetime.utcnow()
         await db.templates.insert_one(doctors_excuse)
     
     # Verification of Visit template
-    with open('../docs/sample-templates/verification-of-visit.json', 'r') as f:
+    verification_path = templates_dir / 'verification-of-visit.json'
+    with open(verification_path, 'r') as f:
         verification = json.load(f)
         verification['created_at'] = datetime.utcnow()
         verification['updated_at'] = datetime.utcnow()

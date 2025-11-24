@@ -65,7 +65,7 @@ function TemplateEditor({ onBack, template }) {
   const handleSave = async () => {
     const templateData = {
       id: template?.id || `tpl-${Date.now()}`,
-      org_id: 'org-demo',
+      org_id: 'org-demo', // TODO: Get from user context
       name: templateName,
       pages: [{
         page_number: 1,
@@ -75,11 +75,12 @@ function TemplateEditor({ onBack, template }) {
         elements: elements
       }],
       variables: variables,
-      created_by: 'usr-demo'
+      created_by: 'usr-demo' // TODO: Get from authenticated user
     }
 
     console.log('Saving template:', templateData)
     // TODO: Call API to save template
+    // In production, replace alert with proper notification component
     alert('Template saved! (Demo mode - not persisted)')
   }
 

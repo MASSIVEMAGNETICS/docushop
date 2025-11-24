@@ -46,8 +46,15 @@ function Dashboard({ onNavigate, onSelectTemplate }) {
         recentDocs: 42,
         pendingSignatures: 5
       })
+      
+      // Uncomment when API is ready:
+      // const data = await getTemplates('org-demo')
+      // setTemplates(data)
+      // setStats({ totalTemplates: data.length, ... })
     } catch (error) {
       console.error('Error loading templates:', error)
+      // In production, show user-friendly error message
+      setTemplates([])
     }
   }
 

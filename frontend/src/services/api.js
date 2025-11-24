@@ -4,12 +4,13 @@ export async function getTemplates(orgId = 'org-demo') {
   try {
     const response = await fetch(`${API_BASE_URL}/orgs/${orgId}/templates`)
     if (!response.ok) {
-      throw new Error('Failed to fetch templates')
+      throw new Error(`Failed to fetch templates: ${response.statusText}`)
     }
     return await response.json()
   } catch (error) {
     console.error('Error fetching templates:', error)
-    return []
+    // Re-throw to allow caller to handle the error
+    throw error
   }
 }
 
