@@ -18,11 +18,11 @@ function createWindow() {
     backgroundColor: '#ffffff',
     icon: path.join(__dirname, '../public/icon.png'),
     webPreferences: {
-      nodeIntegration: true,
-      contextIsolation: false,
-      enableRemoteModule: true,
+      nodeIntegration: false,
+      contextIsolation: true,
+      preload: path.join(__dirname, 'preload.js'),
       webSecurity: true,
-      sandbox: false
+      sandbox: true
     },
     frame: true,
     titleBarStyle: 'default',
@@ -528,8 +528,9 @@ function createPreferencesWindow() {
     modal: true,
     backgroundColor: '#ffffff',
     webPreferences: {
-      nodeIntegration: true,
-      contextIsolation: false
+      nodeIntegration: false,
+      contextIsolation: true,
+      preload: path.join(__dirname, 'preload.js')
     },
     frame: true,
     autoHideMenuBar: true,

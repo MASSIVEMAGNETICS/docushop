@@ -66,18 +66,23 @@ export const useElectronMenu = (handlers = {}) => {
       'menu-check-updates': handlers.onCheckUpdates || (() => console.log('Check Updates')),
     };
 
+    // Store handler references for cleanup
+    const handlerRefs = {};
+
     // Register all menu event listeners
     Object.keys(menuHandlers).forEach(channel => {
-      window.electronAPI.onMenuAction(channel, (event, ...args) => {
+      const handler = (event, ...args) => {
         menuHandlers[channel](...args);
-      });
+      };
+      handlerRefs[channel] = handler;
+      window.electronAPI.onMenuAction(channel, handler);
     });
 
     // Cleanup function to remove all listeners
     return () => {
       if (window.electronAPI && window.electronAPI.removeListener) {
-        Object.keys(menuHandlers).forEach(channel => {
-          window.electronAPI.removeListener(channel, menuHandlers[channel]);
+        Object.keys(handlerRefs).forEach(channel => {
+          window.electronAPI.removeListener(channel, handlerRefs[channel]);
         });
       }
     };

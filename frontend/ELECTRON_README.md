@@ -45,9 +45,11 @@ npm run electron:dev
 ```
 
 This will:
-- Start the Vite dev server on port 5173
+- Start the Vite dev server on port 5173 (changed from 3000 for Vite compatibility)
 - Launch Electron with DevTools open
 - Enable hot-reload for both React and Electron
+
+**Note**: The development server port changed from 3000 to 5173 to align with Vite's default configuration.
 
 ### 3. Web Development Mode
 
@@ -159,6 +161,31 @@ Generated files:
 - `icon.ico` - Windows icon
 - `template-icon.ico` - Template file association
 - `document-icon.ico` - Document file association
+
+## Security
+
+Security features implemented:
+- **Context Isolation**: Enabled to prevent renderer process from accessing Node.js
+- **Preload Script**: Controlled IPC access via contextBridge
+- **Node Integration**: Disabled in renderer processes
+- **Sandbox**: Enabled for additional security layer
+- **Content Security Policy**: Ready for production deployment
+- **No Remote Module**: All communication via secure IPC
+
+### Security Best Practices
+
+The application follows Electron security best practices:
+
+1. **Isolated Contexts**: Renderer processes cannot directly access Node.js APIs
+2. **Controlled IPC**: Only whitelisted channels can communicate between processes
+3. **Secure Loading**: HTTPS enforced in production, localhost allowed in dev
+4. **Input Validation**: All IPC messages should be validated (implement in handlers)
+
+For production deployment:
+- Enable CSP headers
+- Implement input validation for all IPC messages
+- Use signed code for Windows distribution
+- Regular security audits and updates
 
 ## Configuration
 
