@@ -25,11 +25,7 @@ mkdir -p "${BACKUP_DIR}"
 
 # Perform backup using mongodump
 mongodump \
-  --host="${MONGO_HOST}" \
-  --port="${MONGO_PORT}" \
-  --username="${MONGO_USERNAME}" \
-  --password="${MONGO_PASSWORD}" \
-  --authenticationDatabase=admin \
+  --uri="mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOST}:${MONGO_PORT}/admin" \
   --db="${DATABASE_NAME}" \
   --out="${BACKUP_PATH}"
 
