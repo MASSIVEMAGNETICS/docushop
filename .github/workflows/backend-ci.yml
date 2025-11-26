@@ -65,7 +65,6 @@ jobs:
       working-directory: ./backend
       run: |
         mypy app/ --ignore-missing-imports
-      continue-on-error: true
     
     - name: Run tests
       working-directory: ./backend
