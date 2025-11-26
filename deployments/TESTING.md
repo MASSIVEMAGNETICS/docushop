@@ -181,7 +181,7 @@ docker compose -f deployments/docker/docker-compose.prod.yml down
 docker compose -f deployments/docker/docker-compose.prod.yml up -d mongodb
 
 # Restore from backup
-./deployments/scripts/restore.sh /tmp/test-backups/docushop_backup_*.tar.gz
+./deployments/scripts/restore.sh /tmp/test-backups/docushop_backup_20241124_120000.tar.gz
 
 # Restart all services
 docker compose -f deployments/docker/docker-compose.prod.yml up -d
