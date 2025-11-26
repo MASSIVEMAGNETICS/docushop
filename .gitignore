@@ -40,6 +40,7 @@ out/
 .env
 .env.local
 .env.*.local
+deployments/docker/.env
 
 # Logs
 *.log
@@ -52,6 +53,22 @@ htmlcov/
 
 # Docker
 *.pid
+docker-compose.override.yml
+
+# SSL/TLS Certificates
+*.pem
+*.key
+*.crt
+certs/
+
+# Backups
+backups/
+*.tar.gz
+*.sql
+*.dump
+
+# MongoDB
+mongodb_data/
 
 # Temporary files
 tmp/
