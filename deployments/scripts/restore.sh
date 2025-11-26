@@ -56,11 +56,7 @@ fi
 # Perform restore using mongorestore
 echo "Restoring database..."
 mongorestore \
-  --host="${MONGO_HOST}" \
-  --port="${MONGO_PORT}" \
-  --username="${MONGO_USERNAME}" \
-  --password="${MONGO_PASSWORD}" \
-  --authenticationDatabase=admin \
+  --uri="mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOST}:${MONGO_PORT}/admin" \
   --db="${DATABASE_NAME}" \
   --drop \
   "${BACKUP_DIR}/${DATABASE_NAME}"
