@@ -7,9 +7,14 @@ db = db.getSiblingDB('admin');
 db = db.getSiblingDB('docushop');
 
 // Create application user with read/write permissions
+// Note: Environment variables must be set - no defaults for security reasons
+if (!process.env.MONGO_APP_USERNAME || !process.env.MONGO_APP_PASSWORD) {
+  throw new Error('MONGO_APP_USERNAME and MONGO_APP_PASSWORD environment variables must be set');
+}
+
 db.createUser({
-  user: process.env.MONGO_APP_USERNAME || 'docushop_app',
-  pwd: process.env.MONGO_APP_PASSWORD || 'changeme',
+  user: process.env.MONGO_APP_USERNAME,
+  pwd: process.env.MONGO_APP_PASSWORD,
   roles: [
     {
       role: 'readWrite',
