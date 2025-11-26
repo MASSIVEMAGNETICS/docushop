@@ -85,8 +85,7 @@ jobs:
         DEBUG: "true"
       run: |
         pip install pytest-cov
-        pytest tests/ --cov=app --cov-report=term-missing --cov-report=html
-      continue-on-error: true
+        pytest tests/ --cov=app --cov-report=term-missing --cov-report=html --cov-fail-under=80
     
     - name: Upload coverage reports
       uses: actions/upload-artifact@v4
